@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'LA_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'la_serverdb',
-        'USER': 'qwertyuiop',
-        'PASSWORD': '1234567890',
-        'HOST': '47.104.174.231',
+        'NAME': 'xxx',      # 你的数据库名称
+        'USER': 'xxx',       # 你的数据库连接用户
+        'PASSWORD': 'xxx',   # 你的数据库连接密码
+        'HOST': 'xxx',   # 你的安装数据库得IP
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
