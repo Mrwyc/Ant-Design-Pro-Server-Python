@@ -18,4 +18,6 @@ urlpatterns = [
     path(r'updateinfo/', views.UserdataView.as_view()),
     path(r'delete_user/', views.del_user_info),
     path(r'add_user/', views.add_user_info),
+    path(r'add_aritive/', views.add_aritive_data),
+    path(r'get_ariticle/', views.get_ariticle_list),
 ]

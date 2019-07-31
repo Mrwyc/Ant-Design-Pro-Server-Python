@@ -140,7 +140,7 @@ def del_user_info(request):
         result['message'] = u'删除成功'
         result['code'] = 200
     except Exception as e:
-        result['message'] = u'删除失败，错误原因:' + e
+        result['message'] = u'删除失败，错误原因: {0}'.format(e)
         result['code'] = 201
     return JsonResponse(result)
 
@@ -164,4 +164,48 @@ def add_user_info(request):
         else:
             result['message'] = u'请确定是否输入登录账号或密码'
             result['code'] = 201
+    return JsonResponse(result)
+
+
+def add_aritive_data(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    try:
+        aritice_data = {
+            'title': json_data['title'],
+            'aritice_user': json_data['user'],
+            'aritice_gjz': json_data['gjz'],
+            'img_url': json_data['imgPath'],
+            'content': json_data['content']
+        }
+        models.AriticeModel.objects.create(**aritice_data)
+        result['code'] = 200
+        result['message'] = u'保存成功'
+    except Exception as e:
+        result['code'] = 201
+        result['message'] = u'保存异常: {0}'.format(e)
+    return JsonResponse(result)
+
+
+def get_ariticle_list(request):
+    result = {}
+    aritlice_list = []
+    data_list = models.AriticeModel.objects.all()
+    try:
+        for i in data_list:
+            data_dict = {}
+            data_dict['ID'] = i.id
+            data_dict['imgPath'] = i.img_url
+            data_dict['title'] = i.title
+            data_dict['user'] = i.aritice_user
+            data_dict['GJZ'] = i.aritice_gjz
+            data_dict['Create_Time'] = i.create_time.strftime("%Y-%m-%d %H:%M:%S")
+            aritlice_list.append(data_dict)
+        result['message'] = u'获取成功'
+        result['code'] = 200
+        result['data'] = aritlice_list
+    except Exception as e:
+        result['message'] = u'获取错误: {0}'.format(e)
+        result['code'] = 201
     return JsonResponse(result)
