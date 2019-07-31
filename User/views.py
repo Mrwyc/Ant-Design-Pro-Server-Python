@@ -143,3 +143,25 @@ def del_user_info(request):
         result['message'] = u'删除失败，错误原因:' + e
         result['code'] = 201
     return JsonResponse(result)
+
+
+def add_user_info(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    filter_user = models.UserModel.objects.filter(username=json_data['LoginNum'])
+    if filter_user:
+        result['message'] = u'当前用户已存在'
+        result['code'] = 201
+    else:
+        if json_data['LoginNum'] and json_data['loginPwd']:
+            user_data = {'username': json_data['LoginNum'],
+                         'password': md5(json_data['loginPwd']),
+                         'user_token': md5(json_data['LoginNum'])}
+            models.UserModel.objects.create(**user_data)
+            result['message'] = u'新增成功'
+            result['code'] = 200
+        else:
+            result['message'] = u'请确定是否输入登录账号或密码'
+            result['code'] = 201
+    return JsonResponse(result)
