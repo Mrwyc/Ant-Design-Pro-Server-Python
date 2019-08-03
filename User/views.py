@@ -62,6 +62,24 @@ class StudentsView(View):
     def delete(self, request, *args, **kwargs):
         return HttpResponse('DELETE')
 
+# 临时登录接口
+def user_login(request):
+    result = {}
+    if request.method == "POST":
+        username = request.POST.get('username')
+        pwd = request.POST.get('password')
+        user_modal = models.UserModel.objects.filter(username=username).first()
+        print(user_modal)
+
+        if md5(pwd) == user_modal.password:
+            result['code'] = 200
+            result['message'] = u'登录成功'
+            result['token'] = user_modal.user_token
+        else:
+            result['code'] = 201
+            result['message'] = u'登陆失败'
+    return JsonResponse(result)
+
 
 class RoutersData(View):
 
@@ -208,4 +226,56 @@ def get_ariticle_list(request):
     except Exception as e:
         result['message'] = u'获取错误: {0}'.format(e)
         result['code'] = 201
+    return JsonResponse(result)
+
+
+def add_mulu(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    if json_data['OneMulu']:
+        try:
+            models.DirectoryModel.objects.create(directtory_name=json_data['OneMulu'])
+            result['code'] = 200
+            result['message'] = u'添加成功'
+        except Exception as e:
+            result['code'] = 201
+            result['message'] = u'添加异常: {0}'.format(e)
+    else:
+        result['code'] = 201
+        result['message'] = u'一级目录参数获取错误，请联系工作人员!'
+    return JsonResponse(result)
+
+
+def get_one_mulu(request):
+    result = {}
+    data = []
+    try:
+        get_data = models.DirectoryModel.objects.all()
+        for i in get_data:
+            dict_data = {}
+            dict_data['id'] = i.id
+            dict_data['muluName'] = i.directtory_name
+            data.append(dict_data)
+        result['code'] = 200
+        result['data'] = data
+    except Exception as e:
+        result['code'] = 201
+        result['message'] = u'获取一级目录失败:{0}'.format(e)
+    return JsonResponse(result)
+
+
+# 获取二级目录，添加绑定一级目录关系
+def add_two_mulu(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    try:
+        models.Directory_Secondary.objects.create(secondary_name=json_data['TwoMulu'],
+                                              directtore_id=models.DirectoryModel.objects.get(id=json_data['OneMulu']))
+        result['code'] = 200
+        result['message'] = u"添加成功"
+    except Exception as e:
+        result['code'] = 201
+        result['message'] = u'添加异常: {0}'.format(e)
     return JsonResponse(result)

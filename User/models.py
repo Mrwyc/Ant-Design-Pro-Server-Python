@@ -17,3 +17,12 @@ class AriticeModel(models.Model):
     img_url = models.CharField(verbose_name='文章封面图', max_length=100)
     content = models.TextField(verbose_name="文章内容")
     create_time = models.DateTimeField(default=datetime.datetime.now(), verbose_name='文章创建时间')
+
+
+class DirectoryModel(models.Model):
+    directtory_name = models.CharField(verbose_name="一级目录", max_length=80)
+
+
+class Directory_Secondary(models.Model):
+    secondary_name = models.CharField(verbose_name='二级目录', max_length=100)
+    directtore_id = models.ForeignKey('DirectoryModel', verbose_name='一级目录关系',  on_delete=models.CASCADE)
