@@ -401,8 +401,8 @@ def web_get_centext(request):
     dataList = []
     dict_data = eval(str(request.body)).decode()
     ret = json.loads(dict_data)
-    print(ret['PID'])
     Two_Mulu = models.Content_Directory.objects.filter(directory_secondary_id=models.Content_Directory.objects.get(id=ret['PID']))
+    # Two_Mulu = models.Content_Directory.objects.filter(directory_secondary_id=2)
     try:
         for i in Two_Mulu:
             dict_data = {}
@@ -411,6 +411,7 @@ def web_get_centext(request):
             dict_data['create_time'] = i.create_time.strftime("%Y-%m-%d %H:%M:%S")
             dataList.append(dict_data)
             result['code'] = 200
+            result['data'] = dataList
     except Exception as e:
         result['code'] = 201
     return JsonResponse(result)
