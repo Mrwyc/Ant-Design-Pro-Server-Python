@@ -285,7 +285,6 @@ def add_two_mulu(request):
 def get_mulu(request):
     result = {}
     data = []
-    two_data = []
     one_modal = models.DirectoryModel.objects.all()
     if one_modal:
         for i in one_modal:
@@ -296,17 +295,102 @@ def get_mulu(request):
                 result['data'] = data
                 one_dict['Pid'] = i.id
                 one_dict['name'] = i.directtory_name
-                one_dict['data'] = two_data
                 data.append(one_dict)
                 two_modal = models.Directory_Secondary.objects.filter(directtore_id=models.DirectoryModel.objects.get(id=i.id))
+                two_data = []
                 for j in two_modal:
                     two_dict = {}
                     two_dict['id'] = j.id
                     two_dict['name'] = j.secondary_name
                     two_data.append(two_dict)
+                    one_dict['data'] = two_data
             except Exception as e:
                 result['code'] = 201
                 result['message'] = u'获取错误: {0}'.format(e)
+    return JsonResponse(result)
+
+
+def get_one_mulu_data(request):
+    result = {}
+    dataList = []
+    data = models.DirectoryModel.objects.all()
+    try:
+        for i in data:
+            data = {}
+            data['id'] = i.id
+            data['name'] = i.directtory_name
+            dataList.append(data)
+        result['code'] = 200
+        result['data'] = dataList
+    except Exception as e:
+        result['code'] = 201
+        result['message'] = u'获取一级目录失败: {0}'.format(e)
+    return JsonResponse(result)
+
+
+def get_two_mulu_data(request):
+    result = {}
+    dataList = []
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    # try:
+    if json_data['MuLuPid']:
+        data_modal = models.Directory_Secondary.objects.filter(directtore_id=models.DirectoryModel.objects.get(id=json_data['MuLuPid']))
+        for i in data_modal:
+            data_dict = {}
+            data_dict['id'] = i.id
+            data_dict['name'] = i.secondary_name
+            dataList.append(data_dict)
+        result['code'] = 200
+        result['data'] = dataList
+    # except Exception as e:
+    #     print(e)
+    #     result['data'] = []
+    else:
+        result['data'] = []
+    return JsonResponse(result)
+
+
+# 添加话术
+def create_content(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    try:
+        data = {
+            'directory_secondary_id': models.Directory_Secondary.objects.get(id=json_data['TwoPID']),
+            'directory_content': json_data['Context']
+        }
+        models.Content_Directory.objects.create(**data)
+        result['code'] = 200
+        result['message'] = u'内容添加成功'
+    except Exception as e:
+        result['code'] = 201
+        result['message'] = u'内容添加失败: {0}'.format(e)
+    return JsonResponse(result)
+
+
+def get_context(request):
+    result = {}
+    dataList = []
+    data = models.Content_Directory.objects.all()
+    for i in data:
+        try:
+            TwoML_Name = models.Content_Directory.objects.filter(directory_secondary_id=i.directory_secondary_id).first()
+            One_Name = models.Directory_Secondary.objects.filter(directtore_id=TwoML_Name.directory_secondary_id.id).first()
+            dict_data = {}
+            dict_data['ID'] = i.id
+            dict_data['secondary_name'] = TwoML_Name.directory_secondary_id.secondary_name
+            dict_data['directory_name'] = One_Name.directtore_id.directtory_name
+            dict_data['context'] = i.directory_content
+            dict_data['create_time'] = i.create_time.strftime("%Y-%m-%d %H:%M:%S")
+            dataList.append(dict_data)
+            result['code'] = 200
+            result['message'] = u'获取成功'
+            result['data'] = dataList
+        except Exception as e:
+            result['code'] = 201
+            result['message'] = u'获取失败： {0}'.format(e)
     return JsonResponse(result)
 
 

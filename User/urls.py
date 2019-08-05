@@ -25,4 +25,8 @@ urlpatterns = [
     path(r'get_one_mulu/', views.get_one_mulu),
     path(r'add_two_mulu/', views.add_two_mulu),
     path(r'get_mulu/', views.get_mulu),
+    path(r'get_one_mulu_data/', views.get_one_mulu_data),
+    path(r'get_two_mulu_data/', views.get_two_mulu_data),
+    path(r'create_content/', views.create_content),
+    path(r'get_context/', views.get_context),
 ]

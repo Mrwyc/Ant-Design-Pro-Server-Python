@@ -26,3 +26,9 @@ class DirectoryModel(models.Model):
 class Directory_Secondary(models.Model):
     secondary_name = models.CharField(verbose_name='二级目录', max_length=100)
     directtore_id = models.ForeignKey('DirectoryModel', verbose_name='一级目录关系',  on_delete=models.CASCADE)
+
+
+class Content_Directory(models.Model):
+    directory_secondary_id = models.ForeignKey('Directory_Secondary', verbose_name='二级目录关系', on_delete=models.CASCADE)
+    directory_content = models.TextField(verbose_name="话术内容")
+    create_time = models.DateTimeField(default=datetime.datetime.now(), verbose_name="发布时间")
