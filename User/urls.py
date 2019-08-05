@@ -24,4 +24,5 @@ urlpatterns = [
     path(r'add_one_mulu/', views.add_mulu),
     path(r'get_one_mulu/', views.get_one_mulu),
     path(r'add_two_mulu/', views.add_two_mulu),
+    path(r'get_mulu/', views.get_mulu),
 ]

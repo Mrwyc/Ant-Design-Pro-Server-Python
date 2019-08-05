@@ -279,3 +279,38 @@ def add_two_mulu(request):
         result['code'] = 201
         result['message'] = u'添加异常: {0}'.format(e)
     return JsonResponse(result)
+
+
+# 获取一， 二及目录给网页返回
+def get_mulu(request):
+    result = {}
+    data = []
+    two_data = []
+    one_modal = models.DirectoryModel.objects.all()
+    if one_modal:
+        for i in one_modal:
+            one_dict = {}
+            try:
+                result['code'] = 200
+                result['message'] = u"获取成功"
+                result['data'] = data
+                one_dict['Pid'] = i.id
+                one_dict['name'] = i.directtory_name
+                one_dict['data'] = two_data
+                data.append(one_dict)
+                two_modal = models.Directory_Secondary.objects.filter(directtore_id=models.DirectoryModel.objects.get(id=i.id))
+                for j in two_modal:
+                    two_dict = {}
+                    two_dict['id'] = j.id
+                    two_dict['name'] = j.secondary_name
+                    two_data.append(two_dict)
+            except Exception as e:
+                result['code'] = 201
+                result['message'] = u'获取错误: {0}'.format(e)
+    return JsonResponse(result)
+
+
+
+
+
+
