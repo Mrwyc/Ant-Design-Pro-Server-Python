@@ -65,9 +65,11 @@ class StudentsView(View):
 # 临时登录接口
 def user_login(request):
     result = {}
+    dict_data = eval(str(request.body)).decode()
+    ret = json.loads(dict_data)
     if request.method == "POST":
-        username = request.POST.get('username')
-        pwd = request.POST.get('password')
+        username = ret['username']
+        pwd = ret['password']
         user_modal = models.UserModel.objects.filter(username=username).first()
         print(user_modal)
 
@@ -392,6 +394,27 @@ def get_context(request):
             result['code'] = 201
             result['message'] = u'获取失败： {0}'.format(e)
     return JsonResponse(result)
+
+
+def web_get_centext(request):
+    result = {}
+    dataList = []
+    dict_data = eval(str(request.body)).decode()
+    ret = json.loads(dict_data)
+    print(ret['PID'])
+    Two_Mulu = models.Content_Directory.objects.filter(directory_secondary_id=models.Content_Directory.objects.get(id=ret['PID']))
+    try:
+        for i in Two_Mulu:
+            dict_data = {}
+            dict_data['ID'] = i.id
+            dict_data['context'] = i.directory_content
+            dict_data['create_time'] = i.create_time.strftime("%Y-%m-%d %H:%M:%S")
+            dataList.append(dict_data)
+            result['code'] = 200
+    except Exception as e:
+        result['code'] = 201
+    return JsonResponse(result)
+
 
 
 
