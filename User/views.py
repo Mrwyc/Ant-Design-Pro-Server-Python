@@ -445,7 +445,7 @@ def web_get_context(request):
         for i in data_queryset:
             data_dict = {}
             data_dict['ID'] = i.id
-            data_dict['context'] = i.directory_content.replace('\n', '<br/>')
+            data_dict['context'] = i.directory_content.replace('\n', '<br/>').replace('↵', '<br/>').replace(' ', '<br/>')
             data_list.append(data_dict)
         result['code'] = 200
         result['data'] = data_list
