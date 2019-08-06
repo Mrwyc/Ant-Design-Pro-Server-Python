@@ -378,13 +378,11 @@ def get_context(request):
     data = models.Content_Directory.objects.all()
     for i in data:
         try:
-            TwoML_Name = models.Content_Directory.objects.filter(directory_secondary_id=i.directory_secondary_id).first()
-            One_Name = models.Directory_Secondary.objects.filter(directtore_id=TwoML_Name.directory_secondary_id.id).first()
             dict_data = {}
             dict_data['ID'] = i.id
-            dict_data['secondary_name'] = TwoML_Name.directory_secondary_id.secondary_name
-            dict_data['directory_name'] = One_Name.directtore_id.directtory_name
             dict_data['context'] = i.directory_content
+            dict_data['secondary_name'] = i.directory_secondary_id.secondary_name
+            dict_data['directory_name'] = i.directory_secondary_id.directtore_id.directtory_name
             dict_data['create_time'] = i.create_time.strftime("%Y-%m-%d %H:%M:%S")
             dataList.append(dict_data)
             result['code'] = 200
@@ -415,6 +413,50 @@ def web_get_centext(request):
     except Exception as e:
         result['code'] = 201
     return JsonResponse(result)
+
+
+def context_update_del(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    print(json_data['ID'])
+    if json_data['ID']:
+        try:
+            fiter_data = models.Content_Directory.objects.filter(id=json_data['ID'])
+            fiter_data.update(directory_content=json_data['context'])
+            result['code'] = 200
+            result['message'] = u'修改成功'
+        except Exception as e:
+            result['code'] = 201
+            result['message'] = u'修改失败: {0}'.format(e)
+    return JsonResponse(result)
+
+
+def web_get_context(request):
+    result = {}
+    data_list = []
+    # data = list(request.POST.keys())[0]
+    # json_data = json.loads(data)
+    # print(json_data['PID'])
+    context_id = request.POST.get('PID')
+    try:
+        data_queryset = models.Content_Directory.objects.filter(directory_secondary_id=context_id)
+       # data_queryset = models.Content_Directory.objects.filter(directory_secondary_id=json_data['PID'])
+        for i in data_queryset:
+            data_dict = {}
+            data_dict['ID'] = i.id
+            data_dict['context'] = i.directory_content.replace('\n', '<br/>')
+            data_list.append(data_dict)
+        result['code'] = 200
+        result['data'] = data_list
+    except Exception as e:
+        result['code'] = 201
+        result['data'] = []
+    return JsonResponse(result)
+
+
+
+
 
 
 

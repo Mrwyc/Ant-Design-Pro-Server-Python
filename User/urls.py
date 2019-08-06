@@ -30,4 +30,6 @@ urlpatterns = [
     path(r'create_content/', views.create_content),
     path(r'get_context/', views.get_context),
     path(r'web_get_centext/', views.web_get_centext),
+    path(r'context_update_del/', views.context_update_del),
+    path(r'web_get_context/', views.web_get_context),
 ]
