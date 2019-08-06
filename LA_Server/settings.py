@@ -91,13 +91,14 @@ WSGI_APPLICATION = 'LA_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xxxx',     # db名称
-        'USER': 'xxxx',     # 用户名
-        'PASSWORD': 'xxxx', # 密码
-        'HOST': 'xxxx',     # 主机IP
+        'NAME': 'serverdb',
+        'USER': 'qwertyuiop',
+        'PASSWORD': '1234567890',
+        'HOST': '47.104.174.231',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            #"init_command": "SET foreign_key_checks = 0;",
         },
     }
 }
@@ -129,11 +130,13 @@ LANGUAGE_CODE = 'zh-Hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
+USE_TZ = False
+
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

@@ -34,12 +34,13 @@ class StudentsView(View):
                 data = {}
                 data['username'] = username
                 data['password'] = md5(password)
-                data['token'] = md5(username)
+                data['user_token'] = md5(username)
+
                 models.UserModel.objects.create(**data)
                 res['status'] = 'ok'
                 res['currentAuthority'] = 'user'
                 res['message'] = u'注册成功'
-                res['token'] = md5(username)
+                res['user_token'] = md5(username)
                 return JsonResponse(res)
             else:
                 if md5(password) == user_queryset.password:
@@ -115,6 +116,7 @@ def user_date_list(reqeust):
         data['ID'] = i.id
         data['loginNum'] = i.username
         data['token'] = i.user_token
+
         data['createTime'] = i.register_time.strftime("%Y-%m-%d %H:%M:%S")
         datalist.append(data)
     result = {
@@ -435,17 +437,16 @@ def context_update_del(request):
 def web_get_context(request):
     result = {}
     data_list = []
-    # data = list(request.POST.keys())[0]
-    # json_data = json.loads(data)
-    # print(json_data['PID'])
-    context_id = request.POST.get('PID')
+    dict_data = eval(str(request.body)).decode()
+    ret = json.loads(dict_data)
+    # context_id = request.POST.get('PID')
     try:
-        data_queryset = models.Content_Directory.objects.filter(directory_secondary_id=context_id)
+        data_queryset = models.Content_Directory.objects.filter(directory_secondary_id=ret['PID'])
        # data_queryset = models.Content_Directory.objects.filter(directory_secondary_id=json_data['PID'])
         for i in data_queryset:
             data_dict = {}
             data_dict['ID'] = i.id
-            data_dict['context'] = i.directory_content.replace('\n', '<br/>').replace('↵', '<br/>').replace(' ', '<br/>')
+            data_dict['context'] = i.directory_content.replace('\n', '^').replace('↵', '^')
             data_list.append(data_dict)
         result['code'] = 200
         result['data'] = data_list
