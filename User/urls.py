@@ -32,4 +32,7 @@ urlpatterns = [
     path(r'web_get_centext/', views.web_get_centext),
     path(r'context_update_del/', views.context_update_del),
     path(r'web_get_context/', views.web_get_context),
+    path(r'get_web_name/', views.get_web_name),       # 获取系统名称
+    path(r'update_web_name/', views.update_web_name),       # 修改网站名称
+    path(r'filter_huashu/', views.filter_huashu),       # 筛选话术
 ]

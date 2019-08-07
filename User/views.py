@@ -463,10 +463,55 @@ def web_get_context(request):
     return JsonResponse(result)
 
 
+def get_web_name(request):
+    result = {}
+    data_modal = models.Setting_Web.objects.all()
+    for i in data_modal:
+        result['code'] = 200
+        result['message'] = '获取成功'
+        result['ID'] = i.id
+        result['name'] = i.xitong_name
+    return JsonResponse(result)
 
 
+def update_web_name(request):
+    result = {}
+    data = list(request.POST.keys())[0]
+    json_data = json.loads(data)
+    print(json_data['ID'])
+    filter_data = models.Setting_Web.objects.filter(id=json_data['ID'])
+    if filter_data:
+        try:
+            filter_data.update(xitong_name=json_data['WebName'])
+            result['code'] = 200
+            result['message'] = u'更新成功,刷新网站即可'
+        except Exception as e:
+            result['code'] = 201
+            result['message'] = u'更新失败: {0}'.format(e)
+    return JsonResponse(result)
 
 
+def filter_huashu(request):
+    dataList = []
+    result = {}
+    if request.method == "POST":
+        filter_centent = request.POST.get('content')
+        print(filter_centent)
+        try:
+            data_modal = models.Content_Directory.objects.filter(directory_content__contains=filter_centent).all()
+            for i in data_modal:
+                data_dict = {}
+                data_dict['content'] = i.directory_content
+                data_dict['id'] = i.id
+                dataList.append(data_dict)
+            result['code'] = 200
+            result['data'] = dataList
+        except Exception as e:
+            print(e)
+            result['code'] = 201
+            result['data'] = []
+            result['message'] = u'搜索内容不可为空'
+    return JsonResponse(result)
 
 
 
