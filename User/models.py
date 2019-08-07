@@ -11,6 +11,7 @@ class UserModel(models.Model):
     password = models.CharField(verbose_name="用户密码", max_length=80)
     user_token = models.CharField(verbose_name="用户凭证", max_length=80)
     register_time = models.DateTimeField(default=datetime.datetime.now())
+    login_user_type = models.IntegerField(verbose_name='用户登陆类型', default=1)
 
 
 class AriticeModel(models.Model):

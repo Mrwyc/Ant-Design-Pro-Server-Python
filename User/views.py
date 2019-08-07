@@ -19,6 +19,9 @@ def md5(arg):
     return str_md5
 
 
+USER_TYPE_DATA = {'1': '普通会员', '2': '超级会员'}
+
+
 class StudentsView(View):
 
     # 如果用户账号存在则登录，不存在则创建
@@ -31,11 +34,14 @@ class StudentsView(View):
         if username and password:
             user_queryset = models.UserModel.objects.filter(username=username).first()
             if not user_queryset:
+                # if user_queryset:
+                #     res['currentAuthority'] = 'user'
+                #     res['message'] = u'当前登录账号已经注册'
+                # else:
                 data = {}
                 data['username'] = username
                 data['password'] = md5(password)
                 data['user_token'] = md5(username)
-
                 models.UserModel.objects.create(**data)
                 res['status'] = 'ok'
                 res['currentAuthority'] = 'user'
@@ -51,7 +57,7 @@ class StudentsView(View):
                     return JsonResponse(res)
                 else:
                     res['status'] = 'error'
-                    res['currentAuthority'] = 'user'
+                    res['currentAuthority'] = ''
                     res['message'] = u'登录失败'
                     res['token'] = ''
                     return JsonResponse(res)
@@ -116,7 +122,7 @@ def user_date_list(reqeust):
         data['ID'] = i.id
         data['loginNum'] = i.username
         data['token'] = i.user_token
-
+        data['user_type'] = '普通会员' if i.login_user_type == 1 else '超级会员'
         data['createTime'] = i.register_time.strftime("%Y-%m-%d %H:%M:%S")
         datalist.append(data)
     result = {
@@ -137,11 +143,12 @@ class UserdataView(View):
         try:
             user_login_num = json_data['yuanShiLogin']  # 原始登录账号
             login_num = json_data['loginNum']
+            user_Type = json_data['user_Type']
         except Exception as e:
             result['message'] = u'登陆凭证过期,退出重新登录!'  # Token过期
             result['code'] = 201
             return JsonResponse(result)
-        filter_data = models.UserModel.objects.filter(username=user_login_num).update(username=login_num)
+        filter_data = models.UserModel.objects.filter(username=user_login_num).update(username=login_num, login_user_type=int(user_Type))
         if filter_data:
             result['message'] = u'修改成功'
             result['code'] = 200
