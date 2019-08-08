@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7013c82-d384-47aa-933d-4fb59d514bec" name="Default Changelist" comment="web 返回二级目录下边内容">
-      <change afterPath="$PROJECT_DIR$/User/migrations/0005_auto_20190807_1418.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LA_Server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LA_Server/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/migrations/0002_auto_20190729_1802.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/User/migrations/0003_auto_20190731_1445.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/migrations/0004_auto_20190802_1632.py" beforeDir="false" afterPath="$PROJECT_DIR$/User/migrations/0004_auto_20190807_1417.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/migrations/0006_auto_20190805_1532.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/User/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/User/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/User/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/User/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/User/views.py" afterDir="false" />
     </list>
@@ -42,27 +39,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="12284" />
-          <entry key="txt" value="196" />
+          <entry key="py" value="13158" />
+          <entry key="txt" value="207" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="DjangoUrlPath" value="1" />
-          <entry key="PLAIN_TEXT" value="196" />
-          <entry key="Python" value="12283" />
+          <entry key="PLAIN_TEXT" value="207" />
+          <entry key="Python" value="13157" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="py" value="39" />
+          <entry key="py" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="Python" value="39" />
+          <entry key="Python" value="40" />
         </counts>
       </usages-collector>
     </session>
@@ -72,13 +69,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/User/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="505" column="42" lean-forward="true" selection-start-line="505" selection-start-column="42" selection-end-line="505" selection-end-column="42" />
+            <state relative-caret-position="150">
+              <caret line="552" column="32" lean-forward="true" selection-start-line="552" selection-start-column="32" selection-end-line="552" selection-end-column="32" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1565162028060" expanded="true" signature="282:479" ph="..." />
-                <marker date="1565162028060" expanded="true" signature="2139:2143" ph="..." />
-                <marker date="1565162028060" expanded="true" signature="16051:16770" ph="..." />
+                <marker date="1565273110337" expanded="true" signature="282:479" ph="..." />
+                <marker date="1565273110337" expanded="true" signature="2139:2143" ph="..." />
+                <marker date="1565273110337" expanded="true" signature="17712:18321" ph="..." />
               </folding>
             </state>
           </provider>
@@ -87,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="177">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="12" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
                 <marker date="1565158717543" expanded="true" signature="1612:1617" ph="..." />
@@ -98,10 +95,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LA_Server/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="109">
-              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -109,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+            <state relative-caret-position="278">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
               <folding>
                 <element signature="e#118#155#0" expanded="true" />
               </folding>
@@ -139,9 +145,11 @@
       <find>AriticeModel</find>
       <find>DirectoryModel</find>
       <find>Directory_Secondary</find>
-      <find>临时</find>
       <find>Content_Directory</find>
       <find>user_content_directory</find>
+      <find>web_get_context</find>
+      <find>filter_huashu</find>
+      <find>临时</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -213,7 +221,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/LA_Client/Love_Worker" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -396,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565149270896</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="系统设置">
+      <created>1565162683761</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565162683781</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -412,7 +427,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15616623" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14745308" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -426,7 +441,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.35744682" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" visible="true" weight="0.3134752" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" visible="true" weight="0.38865247" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -455,7 +470,8 @@
     <MESSAGE value="数据库更换" />
     <MESSAGE value="settings.py" />
     <MESSAGE value="添加用户类型" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加用户类型" />
+    <MESSAGE value="系统设置" />
+    <option name="LAST_COMMIT_MESSAGE" value="系统设置" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/LA_Server/__init__.py">
@@ -592,24 +608,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LA_Server/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/User/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LA_Server/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/User/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="e#118#155#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/User/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="21" />
+        <state relative-caret-position="177">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="12" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <marker date="1565158717543" expanded="true" signature="1612:1617" ph="..." />
@@ -617,25 +643,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-          <folding>
-            <element signature="e#118#155#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/User/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="505" column="42" lean-forward="true" selection-start-line="505" selection-start-column="42" selection-end-line="505" selection-end-column="42" />
+        <state relative-caret-position="150">
+          <caret line="552" column="32" lean-forward="true" selection-start-line="552" selection-start-column="32" selection-end-line="552" selection-end-column="32" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1565162028060" expanded="true" signature="282:479" ph="..." />
-            <marker date="1565162028060" expanded="true" signature="2139:2143" ph="..." />
-            <marker date="1565162028060" expanded="true" signature="16051:16770" ph="..." />
+            <marker date="1565273110337" expanded="true" signature="282:479" ph="..." />
+            <marker date="1565273110337" expanded="true" signature="2139:2143" ph="..." />
+            <marker date="1565273110337" expanded="true" signature="17712:18321" ph="..." />
           </folding>
         </state>
       </provider>

@@ -35,4 +35,6 @@ urlpatterns = [
     path(r'get_web_name/', views.get_web_name),       # 获取系统名称
     path(r'update_web_name/', views.update_web_name),       # 修改网站名称
     path(r'filter_huashu/', views.filter_huashu),       # 筛选话术
+    path(r'register_user/', views.register_user),       # 用户注册
+    path(r'web_login_user/', views.web_login_user),       # 用户登陆
 ]

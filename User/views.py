@@ -458,6 +458,7 @@ def web_get_context(request):
         result['code'] = 200
         result['data'] = data_list
     except Exception as e:
+        print(e)
         result['code'] = 201
         result['data'] = []
     return JsonResponse(result)
@@ -494,26 +495,70 @@ def update_web_name(request):
 def filter_huashu(request):
     dataList = []
     result = {}
-    if request.method == "POST":
-        filter_centent = request.POST.get('content')
-        print(filter_centent)
-        try:
-            data_modal = models.Content_Directory.objects.filter(directory_content__contains=filter_centent).all()
-            for i in data_modal:
-                data_dict = {}
-                data_dict['content'] = i.directory_content
-                data_dict['id'] = i.id
-                dataList.append(data_dict)
-            result['code'] = 200
-            result['data'] = dataList
-        except Exception as e:
-            print(e)
-            result['code'] = 201
-            result['data'] = []
-            result['message'] = u'搜索内容不可为空'
+    filter_data = request.GET.get('search_data')
+    print(filter_data)
+    try:
+        data_modal = models.Content_Directory.objects.filter(directory_content__contains=filter_data).all()
+        for i in data_modal:
+            data_dict = {}
+            data_dict['content'] = i.directory_content
+            data_dict['id'] = i.id
+            dataList.append(data_dict)
+        result['code'] = 200
+        result['data'] = dataList
+    except Exception as e:
+        print(e)
+        result['code'] = 201
+        result['data'] = []
+        result['message'] = u'搜索内容不可为空'
     return JsonResponse(result)
 
 
+def register_user(request):
+    result = {}
+    loginNum = request.GET.get('loginNum')
+    passWord = request.GET.get('password')
+    if loginNum and passWord:
+        filter_login = models.UserModel.objects.filter(username=loginNum).first()
+        if not filter_login:
+            try:
+                data = {
+                    'username': loginNum,
+                    'password': md5(passWord),
+                    'user_token': md5(passWord)
+                }
+                models.UserModel.objects.create(**data)
+                result['code'] = 200
+                result['message'] = u'注册成功'
+                result['token'] = md5(passWord)
+            except Exception as e:
+                result['code'] = 201
+                result['message'] = u'注册失败:{0}'.format(e)
+        else:
+            result['code'] = 201
+            result['message'] = u'当前手机号已注册'
+    else:
+        result['code'] = 201
+        result['message'] = u'请输入账号或密码'
+    return JsonResponse(result)
 
 
+def web_login_user(request):
+    result = {}
+    loginNum = request.GET.get('loginNum')
+    passWord = request.GET.get('password')
+    if loginNum and passWord:
+        filter_user = models.UserModel.objects.filter(username=loginNum).first()
+        if md5(passWord) == filter_user.password:
+            result['code'] = 200
+            result['message'] = u'登陆成功'
+            result['token'] = filter_user.password
+            result['status'] = 200
+        else:
+            result['code'] = 201
+            result['message'] = u'输入密码不正确'
+    else:
+        result['code'] = 201
+        result['message'] = u'请输入账号或密码'
+    return JsonResponse(result)
 
