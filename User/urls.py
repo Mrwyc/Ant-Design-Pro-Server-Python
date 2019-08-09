@@ -38,4 +38,5 @@ urlpatterns = [
     path(r'register_user/', views.register_user),       # 用户注册
     path(r'web_get_user_info/', views.web_get_user_info),       # 获取用户信息
     path(r'web_login_user/', views.web_login_user),       # 用户登陆
+    path(r'web_context_list/', views.web_context_list),       # 用户登陆
 ]

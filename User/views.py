@@ -581,5 +581,23 @@ def web_get_user_info(request):
         result['message'] = u'获取用户信息失败'
     return JsonResponse(result)
 
-
-
+def web_context_list(request):
+    result = {}
+    dataList = []
+    try:
+        data_List = models.AriticeModel.objects.all()
+        for i in data_List:
+            print(i.id)
+            dict_data = {}
+            dict_data['id'] = i.id
+            dict_data['img_Path'] = i.img_url
+            dict_data['title'] = i.title
+            dict_data['create_time'] = i.create_time.strftime("%Y-%m-%d %H:%M:%S")
+            dataList.append(dict_data)
+        result['code'] = 200
+        result['data'] = dataList
+    except Exception as e:
+        print(e)
+        result['code'] = 201
+        result['message'] = u'获取文章失败'
+    return JsonResponse(result)
