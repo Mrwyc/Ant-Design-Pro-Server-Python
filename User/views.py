@@ -554,6 +554,7 @@ def web_login_user(request):
             result['message'] = u'登陆成功'
             result['token'] = filter_user.password
             result['status'] = 200
+            result['ID'] = filter_user.id
         else:
             result['code'] = 201
             result['message'] = u'输入密码不正确'
@@ -561,4 +562,24 @@ def web_login_user(request):
         result['code'] = 201
         result['message'] = u'请输入账号或密码'
     return JsonResponse(result)
+
+
+def web_get_user_info(request):
+    result = {}
+    try:
+        user_id = request.GET.get('id')
+        if user_id:
+            filter_user_info = models.UserModel.objects.filter(id=user_id).first()
+            result['code'] = 200
+            result['create_time'] = filter_user_info.register_time.strftime("%Y-%m-%d %H:%M:%S")
+            result['username'] = filter_user_info.username
+            result['token'] = filter_user_info.user_token
+            result['userType'] = '普通会员' if filter_user_info.login_user_type == 1 else '超级会员'
+            result['message'] = u'获取信息成功'
+    except Exception as e:
+        result['code'] = 201
+        result['message'] = u'获取用户信息失败'
+    return JsonResponse(result)
+
+
 
