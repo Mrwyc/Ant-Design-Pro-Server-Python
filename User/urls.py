@@ -39,4 +39,7 @@ urlpatterns = [
     path(r'web_get_user_info/', views.web_get_user_info),       # 获取用户信息
     path(r'web_login_user/', views.web_login_user),       # 用户登陆
     path(r'web_context_list/', views.web_context_list),       # 用户登陆
+    path(r'web_get_contextInfo/', views.web_get_contextInfo),       # 用户登陆
+    path(r'web_get_setting_info/', views.web_get_setting_info),       # 获取网站会员简介
+    path(r'web_get_setting_infotwo/', views.web_get_setting_infotwo),       # 获取客服微信
 ]

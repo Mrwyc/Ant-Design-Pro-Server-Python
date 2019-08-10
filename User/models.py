@@ -40,3 +40,5 @@ class Content_Directory(models.Model):
 
 class Setting_Web(models.Model):
     xitong_name = models.CharField(verbose_name='系统名称', max_length=200, default='XXX恋爱话术')
+    huiyuan_jieshao = models.CharField(verbose_name="会员介绍", max_length=500,default="会员权限")
+    lx_admin = models.CharField(verbose_name="联系客服", max_length=500, default='添加客服: xxxx')

@@ -91,9 +91,9 @@ WSGI_APPLICATION = 'LA_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'serverdb',
-        'USER': 'qwertyuiop',
-        'PASSWORD': '1234567890',
+        'NAME': 'huashudb',
+        'USER': 'lianaigongzuoshi',
+        'PASSWORD': '123456789+-.',
         'HOST': '47.104.174.231',
         'PORT': '3306',
         'OPTIONS': {

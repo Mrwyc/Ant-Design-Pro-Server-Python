@@ -78,7 +78,7 @@ def user_login(request):
         username = ret['username']
         pwd = ret['password']
         user_modal = models.UserModel.objects.filter(username=username).first()
-        print(user_modal)
+
 
         if md5(pwd) == user_modal.password:
             result['code'] = 200
@@ -143,20 +143,19 @@ class UserdataView(View):
         try:
             user_login_num = json_data['yuanShiLogin']  # 原始登录账号
             login_num = json_data['loginNum']
-            user_Type = json_data['user_Type']
+            user_Type = 1 if json_data['user_Type'] == "普通会员" else 2
+            filter_data = models.UserModel.objects.filter(username=user_login_num).update(username=login_num, login_user_type=int(user_Type))
+            if filter_data:
+                result['message'] = u'修改成功'
+                result['code'] = 200
+            else:
+                result['message'] = u'修改失败'
+                result['code'] = 201
         except Exception as e:
+            print(e)
             result['message'] = u'登陆凭证过期,退出重新登录!'  # Token过期
             result['code'] = 201
-            return JsonResponse(result)
-        filter_data = models.UserModel.objects.filter(username=user_login_num).update(username=login_num, login_user_type=int(user_Type))
-        if filter_data:
-            result['message'] = u'修改成功'
-            result['code'] = 200
-            return JsonResponse(result)
-        else:
-            result['message'] = u'修改失败'
-            result['code'] = 201
-            return JsonResponse(result)
+        return JsonResponse(result)
 
 
 #  删除用户
@@ -472,6 +471,8 @@ def get_web_name(request):
         result['message'] = '获取成功'
         result['ID'] = i.id
         result['name'] = i.xitong_name
+        result['huiyuan_jieshao'] = i.huiyuan_jieshao
+        result['lx_admin'] = i.lx_admin
     return JsonResponse(result)
 
 
@@ -483,7 +484,12 @@ def update_web_name(request):
     filter_data = models.Setting_Web.objects.filter(id=json_data['ID'])
     if filter_data:
         try:
-            filter_data.update(xitong_name=json_data['WebName'])
+            data_dict = {
+                'xitong_name': json_data['WebName'],
+                'huiyuan_jieshao': json_data['WebHy'],
+                'lx_admin': json_data['adminLogin']
+            }
+            filter_data.update(**data_dict)
             result['code'] = 200
             result['message'] = u'更新成功,刷新网站即可'
         except Exception as e:
@@ -567,9 +573,11 @@ def web_login_user(request):
 def web_get_user_info(request):
     result = {}
     try:
-        user_id = request.GET.get('id')
+        user_id = request.GET.get('token')
+        print(user_id)
         if user_id:
-            filter_user_info = models.UserModel.objects.filter(id=user_id).first()
+            filter_user_info = models.UserModel.objects.filter(user_token=user_id).first()
+            print(filter_user_info)
             result['code'] = 200
             result['create_time'] = filter_user_info.register_time.strftime("%Y-%m-%d %H:%M:%S")
             result['username'] = filter_user_info.username
@@ -577,6 +585,7 @@ def web_get_user_info(request):
             result['userType'] = '普通会员' if filter_user_info.login_user_type == 1 else '超级会员'
             result['message'] = u'获取信息成功'
     except Exception as e:
+        print(e)
         result['code'] = 201
         result['message'] = u'获取用户信息失败'
     return JsonResponse(result)
@@ -587,7 +596,6 @@ def web_context_list(request):
     try:
         data_List = models.AriticeModel.objects.all()
         for i in data_List:
-            print(i.id)
             dict_data = {}
             dict_data['id'] = i.id
             dict_data['img_Path'] = i.img_url
@@ -600,4 +608,37 @@ def web_context_list(request):
         print(e)
         result['code'] = 201
         result['message'] = u'获取文章失败'
+    return JsonResponse(result)
+
+
+def web_get_contextInfo(request):
+    result = {}
+    context_id = request.GET.get('id')
+    print(context_id)
+    if context_id:
+        filter_context = models.AriticeModel.objects.filter(id=context_id).first()
+        if filter_context:
+            result['code'] = 200
+            result['context'] = filter_context.content
+        else:
+            result['code'] = 201
+            result['message'] = u'获取秘籍失败'
+    else:
+        result['code'] = 201
+        result['message'] = u'传递秘籍token失败'
+    return JsonResponse(result)
+
+def web_get_setting_info(request):
+    result = {}
+    data = models.Setting_Web.objects.all().first()
+    result['hy'] = data.huiyuan_jieshao
+    result['code'] = 200
+    return JsonResponse(result)
+
+
+def web_get_setting_infotwo(request):
+    result = {}
+    data = models.Setting_Web.objects.all().first()
+    result['kf'] = data.lx_admin
+    result['code'] = 200
     return JsonResponse(result)
