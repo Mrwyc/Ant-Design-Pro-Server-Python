@@ -573,10 +573,9 @@ def web_login_user(request):
 def web_get_user_info(request):
     result = {}
     try:
-        user_id = request.GET.get('token')
-        print(user_id)
+        user_id = request.GET.get('id')
         if user_id:
-            filter_user_info = models.UserModel.objects.filter(user_token=user_id).first()
+            filter_user_info = models.UserModel.objects.filter(id=user_id).first()
             print(filter_user_info)
             result['code'] = 200
             result['create_time'] = filter_user_info.register_time.strftime("%Y-%m-%d %H:%M:%S")
