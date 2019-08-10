@@ -558,7 +558,7 @@ def web_login_user(request):
         if md5(passWord) == filter_user.password:
             result['code'] = 200
             result['message'] = u'登陆成功'
-            result['token'] = filter_user.password
+            result['token'] = filter_user.user_token
             result['status'] = 200
             result['ID'] = filter_user.id
         else:
