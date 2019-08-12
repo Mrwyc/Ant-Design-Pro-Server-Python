@@ -641,3 +641,29 @@ def web_get_setting_infotwo(request):
     result['kf'] = data.lx_admin
     result['code'] = 200
     return JsonResponse(result)
+
+
+def get_id_dataInfo(request):
+    result = {}
+    dataList =[]
+    dict_data = eval(str(request.body)).decode()
+    ret = json.loads(dict_data)
+    print(ret['uid'])
+    if ret['uid']:
+        try:
+            filter_data = models.Content_Directory.objects.filter(id=ret['uid'])
+            for i in filter_data:
+                data_dict = {}
+                data_dict['ID'] = i.id
+                data_dict['context'] = i.directory_content.replace('\n', '^').replace('↵', '^')
+                dataList.append(data_dict)
+            result['code'] = 200
+            result['data'] = dataList
+        except Exception as e:
+            result['code'] = 201
+            result['data'] = []
+            result['message'] = u'错误: {0}'.format(e)
+    else:
+        result['code'] = 201
+        result['message'] = u'获取数据id失败'
+    return JsonResponse(result)

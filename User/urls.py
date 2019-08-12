@@ -42,4 +42,5 @@ urlpatterns = [
     path(r'web_get_contextInfo/', views.web_get_contextInfo),       # 用户登陆
     path(r'web_get_setting_info/', views.web_get_setting_info),       # 获取网站会员简介
     path(r'web_get_setting_infotwo/', views.web_get_setting_infotwo),       # 获取客服微信
+    path(r'get_id_dataInfo/', views.get_id_dataInfo),       # 列表根据id获取详细数据
 ]
