@@ -427,7 +427,6 @@ def context_update_del(request):
     result = {}
     data = list(request.POST.keys())[0]
     json_data = json.loads(data)
-    print(json_data['ID'])
     if json_data['ID']:
         try:
             fiter_data = models.Content_Directory.objects.filter(id=json_data['ID'])
@@ -480,7 +479,6 @@ def update_web_name(request):
     result = {}
     data = list(request.POST.keys())[0]
     json_data = json.loads(data)
-    print(json_data['ID'])
     filter_data = models.Setting_Web.objects.filter(id=json_data['ID'])
     if filter_data:
         try:
@@ -502,7 +500,6 @@ def filter_huashu(request):
     dataList = []
     result = {}
     filter_data = request.GET.get('search_data')
-    print(filter_data)
     try:
         data_modal = models.Content_Directory.objects.filter(directory_content__contains=filter_data).all()
         for i in data_modal:
@@ -576,7 +573,6 @@ def web_get_user_info(request):
         user_id = request.GET.get('token')
         if user_id:
             filter_user_info = models.UserModel.objects.filter(user_token=user_id).first()
-            print(filter_user_info)
             result['code'] = 200
             result['create_time'] = filter_user_info.register_time.strftime("%Y-%m-%d %H:%M:%S")
             result['username'] = filter_user_info.username
@@ -613,7 +609,6 @@ def web_context_list(request):
 def web_get_contextInfo(request):
     result = {}
     context_id = request.GET.get('id')
-    print(context_id)
     if context_id:
         filter_context = models.AriticeModel.objects.filter(id=context_id).first()
         if filter_context:
@@ -648,7 +643,6 @@ def get_id_dataInfo(request):
     dataList =[]
     dict_data = eval(str(request.body)).decode()
     ret = json.loads(dict_data)
-    print(ret['uid'])
     if ret['uid']:
         try:
             filter_data = models.Content_Directory.objects.filter(id=ret['uid'])
