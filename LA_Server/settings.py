@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'LA_Server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'huashudb',
-        'USER': 'lianaigongzuoshi',
-        'PASSWORD': '123456789+-.',
-        'HOST': '47.104.174.231',
+        'ENGINE': 'xxxx',
+        'NAME': 'xxxx',
+        'USER': 'xxxx',
+        'PASSWORD': 'xxxxx',
+        'HOST': 'xxxxx',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",

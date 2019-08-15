@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7013c82-d384-47aa-933d-4fb59d514bec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LA_Server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LA_Server/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,20 +21,21 @@
     <session id="-1014499462">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.866" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="15337" />
+          <entry key="py" value="15372" />
           <entry key="txt" value="279" />
         </counts>
       </usages-collector>
@@ -41,7 +43,7 @@
         <counts>
           <entry key="DjangoUrlPath" value="2" />
           <entry key="PLAIN_TEXT" value="279" />
-          <entry key="Python" value="15335" />
+          <entry key="Python" value="15370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -64,16 +66,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="662" column="32" lean-forward="true" selection-start-line="662" selection-start-column="32" selection-end-line="662" selection-end-column="32" />
+            <state relative-caret-position="232">
+              <caret line="339" selection-start-line="339" selection-end-line="339" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1565594134244" expanded="true" signature="282:479" ph="..." />
-                <marker date="1565594134244" expanded="true" signature="2139:2143" ph="..." />
-                <marker date="1565594134244" expanded="true" signature="20972:20977" ph="..." />
+                <marker date="1565597084100" expanded="true" signature="282:479" ph="..." />
+                <marker date="1565597084100" expanded="true" signature="2139:2143" ph="..." />
+                <marker date="1565597084100" expanded="true" signature="20837:20842" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="875">
               <caret line="36" column="21" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -101,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LA_Server/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2375">
-              <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+            <state relative-caret-position="279">
+              <caret line="94" column="23" lean-forward="true" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -122,7 +124,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
+            <state relative-caret-position="1075">
               <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
               <folding>
                 <element signature="e#118#155#0" expanded="true" />
@@ -162,6 +164,7 @@
       <find>47.104.</find>
       <find>获取用户信息失败</find>
       <find>web_login_user</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -178,11 +181,11 @@
         <option value="$PROJECT_DIR$/LA_Server/urls.py" />
         <option value="$PROJECT_DIR$/templates/test'.html" />
         <option value="$PROJECT_DIR$/User/tests.py" />
-        <option value="$PROJECT_DIR$/LA_Server/settings.py" />
         <option value="$PROJECT_DIR$/User/models.py" />
         <option value="$PROJECT_DIR$/LA_Server.xml" />
         <option value="$PROJECT_DIR$/User/urls.py" />
         <option value="$PROJECT_DIR$/User/views.py" />
+        <option value="$PROJECT_DIR$/LA_Server/settings.py" />
       </list>
     </option>
   </component>
@@ -193,7 +196,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="51" />
+    <option name="x" value="50" />
     <option name="y" value="75" />
     <option name="width" value="1555" />
     <option name="height" value="840" />
@@ -204,7 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,6 +229,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565596998818</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="获取话术详情">
+      <created>1565597091003</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1565597091003</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -494,7 +504,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1494638" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15147454" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -545,17 +555,6 @@
     <MESSAGE value="web 返回二级目录下边内容" />
     <MESSAGE value="获取话术详情" />
     <option name="LAST_COMMIT_MESSAGE" value="获取话术详情" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/User/views.py</url>
-          <line>637</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/LA_Server/__init__.py">
@@ -626,9 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#633#670#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -709,6 +705,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/User/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="339" selection-start-line="339" selection-end-line="339" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1565597084100" expanded="true" signature="282:479" ph="..." />
+            <marker date="1565597084100" expanded="true" signature="2139:2143" ph="..." />
+            <marker date="1565597084100" expanded="true" signature="20837:20842" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -716,10 +725,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LA_Server/settings.py">
+    <entry file="file://$PROJECT_DIR$/User/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
-          <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+        <state relative-caret-position="875">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1565418520384" expanded="true" signature="1612:1617" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -732,7 +745,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/User/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
+        <state relative-caret-position="1075">
           <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
           <folding>
             <element signature="e#118#155#0" expanded="true" />
@@ -740,27 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User/models.py">
+    <entry file="file://$PROJECT_DIR$/LA_Server/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1565418520384" expanded="true" signature="1612:1617" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/User/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="662" column="32" lean-forward="true" selection-start-line="662" selection-start-column="32" selection-end-line="662" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1565594134244" expanded="true" signature="282:479" ph="..." />
-            <marker date="1565594134244" expanded="true" signature="2139:2143" ph="..." />
-            <marker date="1565594134244" expanded="true" signature="20972:20977" ph="..." />
-          </folding>
+        <state relative-caret-position="279">
+          <caret line="94" column="23" lean-forward="true" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
         </state>
       </provider>
     </entry>
